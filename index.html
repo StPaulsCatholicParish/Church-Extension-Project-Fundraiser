@@ -162,10 +162,21 @@ nav {
     rgba(0,15,56,0.18) 100%
   );
 }
+@media (max-width: 768px) {
+  .hero-img::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,15,56,0.55) 0%,
+      rgba(0,15,56,0.82) 55%,
+      rgba(0,15,56,0.96) 100%
+    );
+  }
+}
 .hero-content {
   position: relative; z-index: 1;
+  width: 100%;
   padding: clamp(3.5rem, 5vw, 9rem) clamp(2.5rem, 5vw, 7rem) clamp(4rem, 6vw, 10rem);
-  max-width: clamp(600px, 50vw, 1100px);
+  max-width: clamp(480px, 50vw, 1100px);
 }
 .hero-eyebrow {
   display: flex; align-items: center; gap: 0.75rem;
@@ -301,19 +312,6 @@ nav {
 /* ─────────────────────────────────────────────
    INTRO
 ───────────────────────────────────────────── */
-.intro,
-.ministries,
-.fundraiser,
-.tickets,
-.arch-section,
-.quote-banner,
-.give,
-.contact,
-footer {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
-}
-
 .intro { background: var(--white); padding: 6rem 2.5rem; }
 .intro-grid {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -748,9 +746,12 @@ footer {
 @media (max-width: 768px) {
   nav { padding: 0 1.25rem; }
   .nav-links { display: none; }
+  .nav-brand-sub { display: none; }
+  .nav-logo-img { width: 40px; height: 40px; }
   .topbar { display: none; }
-  .hero-content { padding: 5rem 1.5rem 4rem; }
+  .hero-content { padding: 2rem 1.25rem 3rem; }
   .hero-badge { display: none; }
+  .btn-sky, .btn-outline-white { width: 100%; justify-content: center; }
   .intro, .ministries, .fundraiser, .tickets,
   .give, .contact { padding: 4rem 1.25rem; }
   .tickets-grid { grid-template-columns: 1fr; }
@@ -760,18 +761,22 @@ footer {
   .stats-inner { grid-template-columns: 1fr 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .quote-banner { padding: 5rem 1.25rem; }
-  .intro-img-wrap { padding-bottom: 2rem; }
-  .intro-img-accent { right: 0; bottom: 0; }
+  .quote-banner { padding: 4rem 1.25rem; }
+  .intro-img-wrap { padding-bottom: 2.5rem; }
+  .intro-img-accent { right: 0; bottom: 0; width: 110px; height: 110px; }
+  .intro-img-accent-num { font-size: 2rem; }
+  .ticket-card-top { padding: 1.5rem 1.25rem 1.25rem; }
+  .ticket-card-body { padding: 1.25rem 1.25rem 1.5rem; }
+}
+@media (max-width: 480px) {
+  .section-title { font-size: 1.75rem; }
 }
 @media (max-width: 375px) {
-  .hero-content { padding: 4rem 1rem 3rem; }
+  .hero-content { padding: 1.5rem 1rem 2.5rem; }
   .intro, .ministries, .fundraiser, .tickets,
   .give, .contact, .arch-section { padding: 3rem 1rem; }
-  .quote-banner { padding: 4rem 1rem; }
+  .quote-banner { padding: 3rem 1rem; }
   footer { padding: 3rem 1rem; }
-  .ticket-card-top, .ticket-card-body { padding: 1.5rem 1.25rem; }
-  .section-title { font-size: 1.75rem; }
 }
 @media (max-width: 480px) {
   .stats-inner { grid-template-columns: 1fr; }
@@ -1373,12 +1378,12 @@ footer {
         </div>
         <div class="form-field">
           <label for="email">Email Address<span class="required-star" aria-hidden="true">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required aria-required="true">
+          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-required="true">
           <span class="field-error" id="email-error">Please enter a valid email address.</span>
         </div>
         <div class="form-field">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+675 82452098">
+          <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+675 82452098">
         </div>
         <div class="form-field">
           <label for="interest">I'm Interested In<span class="required-star" aria-hidden="true">*</span></label>
