@@ -133,7 +133,9 @@ nav {
   transition: transform 200ms var(--ease-ui);
 }
 .nav-links a:hover { color: var(--navy); }
-.nav-links a:hover::after { transform: scaleX(1); }
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover::after { transform: scaleX(1); }
+}
 .nav-cta {
   display: inline-flex; align-items: center; justify-content: center;
   min-height: 44px; padding: 0 1.5rem;
@@ -447,7 +449,9 @@ nav {
   border-radius: 2px;
   transition: background 200ms var(--ease-ui);
 }
-.fundraiser-detail:hover { background: rgba(122,209,255,0.09); }
+@media (hover: hover) and (pointer: fine) {
+  .fundraiser-detail:hover { background: rgba(122,209,255,0.09); }
+}
 .fundraiser-detail-icon {
   width: 40px; height: 40px; flex-shrink: 0;
   background: rgba(6,114,186,0.2); border-radius: 50%;
@@ -615,7 +619,9 @@ nav {
   transition: background 180ms var(--ease-ui);
 }
 .give-way:last-child { border-bottom: none; }
-.give-way:hover { background: var(--sky-pale); }
+@media (hover: hover) and (pointer: fine) {
+  .give-way:hover { background: var(--sky-pale); }
+}
 .give-way-num {
   font-family: 'Oswald', sans-serif;
   font-size: 1.75rem; font-weight: 700;
@@ -786,8 +792,8 @@ footer {
    SCROLL REVEAL
 ───────────────────────────────────────────── */
 .reveal {
-  opacity: 0; transform: translateY(14px);
-  transition: opacity 0.45s var(--ease-ui), transform 0.45s var(--ease-ui);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.32s var(--ease-ui), transform 0.32s var(--ease-ui);
 }
 .reveal.visible { opacity: 1; transform: none; }
 .reveal[data-delay="1"] { transition-delay: 60ms; }
@@ -914,7 +920,9 @@ footer {
   text-decoration: none;
   transition: color 160ms var(--ease-ui), padding-left 160ms var(--ease-ui);
 }
-.mobile-menu-nav a:hover { color: var(--blue); padding-left: 0.5rem; }
+@media (hover: hover) and (pointer: fine) {
+  .mobile-menu-nav a:hover { color: var(--blue); padding-left: 0.5rem; }
+}
 .mobile-menu-cta {
   display: flex; align-items: center; justify-content: center;
   min-height: 52px; margin-top: 2rem;
@@ -1028,7 +1036,9 @@ footer {
   transition: background 160ms var(--ease-ui);
 }
 .arch-spec:last-child { border-bottom: none; }
-.arch-spec:hover { background: var(--sky-pale); }
+@media (hover: hover) and (pointer: fine) {
+  .arch-spec:hover { background: var(--sky-pale); }
+}
 .arch-spec-label {
   font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--blue); margin-bottom: 0.2rem;
@@ -1097,16 +1107,15 @@ footer {
 
 /* ─── PAGE TRANSITIONS ─────────────────────────────────────────── */
 @keyframes page-enter {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: none; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 body {
-  animation: page-enter 440ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: page-enter 280ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 body.page-exit {
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 240ms ease-in, transform 240ms ease-in;
+  transition: opacity 200ms cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
 }
 @media (prefers-reduced-motion: reduce) {
