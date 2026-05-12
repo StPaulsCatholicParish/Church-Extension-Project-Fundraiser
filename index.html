@@ -86,6 +86,12 @@ nav {
   padding: 0 2.5rem;
   display: flex; justify-content: space-between; align-items: center;
   height: 70px;
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+nav.nav-hidden {
+  transform: translateY(-105%);
+  pointer-events: none;
 }
 .nav-brand {
   display: flex; align-items: center; gap: 0.875rem;
@@ -1454,6 +1460,20 @@ footer {
 
 <script>
 (function() {
+  // Nav hide/show based on hero visibility
+  var nav  = document.querySelector('nav');
+  var hero = document.querySelector('.hero');
+  if (nav && hero) {
+    var navObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        nav.classList.remove('nav-hidden');
+      } else {
+        nav.classList.add('nav-hidden');
+      }
+    }, { threshold: 0 });
+    navObserver.observe(hero);
+  }
+
   var els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries) {
