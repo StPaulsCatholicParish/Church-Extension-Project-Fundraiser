@@ -323,7 +323,30 @@ nav.nav-hidden {
   gap: 5rem; align-items: center;
   max-width: 1200px; margin: 0 auto;
 }
+.intro-left { display: flex; flex-direction: column; gap: 1.25rem; }
 .intro-img-wrap { position: relative; }
+.intro-map {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,60,150,0.12);
+  box-shadow: 0 4px 16px rgba(0,15,56,0.07);
+}
+.intro-map-label {
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
+  background: var(--navy);
+  color: var(--sky);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.intro-map iframe {
+  display: block;
+  width: 100%;
+  height: 240px;
+  border: 0;
+}
 .intro-img {
   width: 100%; aspect-ratio: 4/5; object-fit: cover;
   background: url('hero.jpg') center top/cover no-repeat;
@@ -807,6 +830,7 @@ footer {
   .footer-bottom { flex-direction: column; text-align: center; }
   .quote-banner { padding: 4rem 1.25rem; }
   .intro-img-wrap { padding-bottom: 2.5rem; }
+  .intro-map iframe { height: 200px; }
   .intro-img-accent { right: 0; bottom: 0; width: 110px; height: 110px; }
   .intro-img-accent-num { font-size: 2rem; }
   .ticket-card-top { padding: 1.5rem 1.25rem 1.25rem; }
@@ -1112,11 +1136,26 @@ footer {
 <!-- Intro / About -->
 <section class="intro" id="about" aria-labelledby="about-title">
   <div class="intro-grid">
-    <div class="intro-img-wrap reveal">
-      <div class="intro-img" role="img" aria-label="Parish community gathering"></div>
-      <div class="intro-img-accent" aria-hidden="true">
-        <span class="intro-img-accent-num">30+</span>
-        <span class="intro-img-accent-text">Years Serving Gerehu</span>
+    <div class="intro-left reveal">
+      <div class="intro-img-wrap">
+        <div class="intro-img" role="img" aria-label="Parish community gathering"></div>
+        <div class="intro-img-accent" aria-hidden="true">
+          <span class="intro-img-accent-num">30+</span>
+          <span class="intro-img-accent-text">Years Serving Gerehu</span>
+        </div>
+      </div>
+      <div class="intro-map">
+        <div class="intro-map-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Gerehu Stage 6, Port Moresby
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492.0626450153489!2d147.159094517905!3d-9.37733429439823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69023a4d99dc40a3%3A0x732a14c7c10eb225!2sSt.%20Paul&#39;s%20Catholic%20Church!5e0!3m2!1sen!2spg!4v1778619758867!5m2!1sen!2spg"
+          title="St. Paul's Catholic Church location on Google Maps"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
     <div>
