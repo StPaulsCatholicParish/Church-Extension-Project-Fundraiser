@@ -129,7 +129,7 @@ nav {
   content: ''; position: absolute; bottom: 0;
   left: 0.6rem; right: 0.6rem; height: 2px;
   background: var(--blue);
-  transform: scaleX(0); transform-origin: center;
+  transform: scaleX(0); transform-origin: left;
   transition: transform 200ms var(--ease-ui);
 }
 .nav-links a:hover { color: var(--navy); }
@@ -793,14 +793,14 @@ footer {
 ───────────────────────────────────────────── */
 .reveal {
   opacity: 0; transform: translateY(10px);
-  transition: opacity 0.32s var(--ease-ui), transform 0.32s var(--ease-ui);
+  transition: opacity 0.26s var(--ease-ui), transform 0.26s var(--ease-ui);
 }
 .reveal.visible { opacity: 1; transform: none; }
-.reveal[data-delay="1"] { transition-delay: 60ms; }
-.reveal[data-delay="2"] { transition-delay: 120ms; }
-.reveal[data-delay="3"] { transition-delay: 180ms; }
-.reveal[data-delay="4"] { transition-delay: 240ms; }
-.reveal[data-delay="5"] { transition-delay: 300ms; }
+.reveal[data-delay="1"] { transition-delay: 50ms; }
+.reveal[data-delay="2"] { transition-delay: 100ms; }
+.reveal[data-delay="3"] { transition-delay: 150ms; }
+.reveal[data-delay="4"] { transition-delay: 200ms; }
+.reveal[data-delay="5"] { transition-delay: 250ms; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .ticket-card,
@@ -898,7 +898,7 @@ footer {
   padding: 5rem 2rem 2rem;
   overflow-y: auto;
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   transition: opacity 220ms var(--ease-ui), transform 220ms var(--ease-ui);
 }
 .mobile-menu.open {
@@ -918,10 +918,10 @@ footer {
   font-size: 1.2rem; font-weight: 600; letter-spacing: 0.06em;
   text-transform: uppercase; color: var(--navy);
   text-decoration: none;
-  transition: color 160ms var(--ease-ui), padding-left 160ms var(--ease-ui);
+  transition: color 160ms var(--ease-ui), transform 160ms var(--ease-ui);
 }
 @media (hover: hover) and (pointer: fine) {
-  .mobile-menu-nav a:hover { color: var(--blue); padding-left: 0.5rem; }
+  .mobile-menu-nav a:hover { color: var(--blue); transform: translateX(6px); }
 }
 .mobile-menu-cta {
   display: flex; align-items: center; justify-content: center;
@@ -1107,15 +1107,15 @@ footer {
 
 /* ─── PAGE TRANSITIONS ─────────────────────────────────────────── */
 @keyframes page-enter {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
 }
 body {
-  animation: page-enter 280ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: page-enter 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 body.page-exit {
   opacity: 0;
-  transition: opacity 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 160ms cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1170,6 +1170,31 @@ body.page-exit {
 }
 .mobile-menu-nav a[aria-current="page"] {
   color: var(--blue);
+}
+
+
+/* ─────────────────────────────────────────────
+   HERO STAGGER ENTRY
+───────────────────────────────────────────── */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Full hero (home page) */
+.hero-eyebrow  { animation: hero-in 380ms var(--ease-ui) 60ms  both; }
+.hero h1       { animation: hero-in 480ms var(--ease-ui) 140ms both; }
+.hero-sub      { animation: hero-in 380ms var(--ease-ui) 280ms both; }
+.hero-actions  { animation: hero-in 360ms var(--ease-ui) 400ms both; }
+.hero-badge    { animation: hero-in 360ms var(--ease-ui) 480ms both; }
+
+/* Page-hero (inner pages) */
+.page-hero-title { animation: hero-in 400ms var(--ease-ui) 120ms both; }
+.page-hero-sub   { animation: hero-in 360ms var(--ease-ui) 240ms both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow, .hero h1, .hero-sub, .hero-actions, .hero-badge,
+  .page-hero-title, .page-hero-sub { animation: none; }
 }
 
 </style>
@@ -1335,7 +1360,7 @@ body.page-exit {
       entries.forEach(function(e) {
         if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
     els.forEach(function(el) { io.observe(el); });
   } else {
     els.forEach(function(el) { el.classList.add('visible'); });
@@ -1456,7 +1481,7 @@ body.page-exit {
       e.preventDefault();
       _pt = true;
       document.body.classList.add('page-exit');
-      setTimeout(function() { window.location.href = link.href; }, 260);
+      setTimeout(function() { window.location.href = link.href; }, 200);
     });
   }
 })();
