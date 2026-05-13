@@ -801,8 +801,29 @@ footer {
 .reveal[data-delay="3"] { transition-delay: 150ms; }
 .reveal[data-delay="4"] { transition-delay: 200ms; }
 .reveal[data-delay="5"] { transition-delay: 250ms; }
+
+/* Reveal variants */
+.reveal-left {
+  opacity: 0; transform: translateX(-20px);
+  transition: opacity 0.32s var(--ease-ui), transform 0.32s var(--ease-ui);
+}
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-scale {
+  opacity: 0; transform: scale(0.96);
+  transition: opacity 0.3s var(--ease-ui), transform 0.3s var(--ease-ui);
+}
+.reveal-scale.visible { opacity: 1; transform: none; }
+
+/* Auto-stagger groups — JS sets --i on each child */
+.stagger-group > * {
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.28s var(--ease-ui), transform 0.28s var(--ease-ui);
+  transition-delay: calc(var(--i, 0) * 65ms);
+}
+.stagger-group.visible > * { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .reveal-left, .reveal-scale { opacity: 1; transform: none; transition: none; }
+  .stagger-group > * { opacity: 1; transform: none; transition: none; }
   .ticket-card,
   .btn-sky, .btn-outline-white,
   .btn-blue-full, .nav-cta,
