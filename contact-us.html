@@ -1476,6 +1476,24 @@ body.page-exit {
   // ── Page transitions ─────────────────────────────────────────
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var _pt = false;
+
+    // Reset on bfcache restore (iOS back/forward navigation)
+    window.addEventListener('pageshow', function(e) {
+      if (e.persisted) {
+        _pt = false;
+        document.body.classList.remove('page-exit');
+        document.body.style.overflow = '';
+      }
+    });
+    // Reset if app is backgrounded mid-transition (iOS home swipe etc.)
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible' && _pt) {
+        _pt = false;
+        document.body.classList.remove('page-exit');
+        document.body.style.overflow = '';
+      }
+    });
+
     document.addEventListener('click', function(e) {
       var link = e.target.closest('a[href]');
       if (!link || _pt) return;
@@ -1488,6 +1506,11 @@ body.page-exit {
       e.preventDefault();
       _pt = true;
       document.body.classList.add('page-exit');
+      // Safety net: if navigation stalls, unlock after 2s
+      setTimeout(function() {
+        _pt = false;
+        document.body.classList.remove('page-exit');
+      }, 2000);
       setTimeout(function() { window.location.href = link.href; }, 200);
     });
   }
