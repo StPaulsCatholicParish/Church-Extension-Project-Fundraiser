@@ -312,7 +312,7 @@ nav {
 .section-title.light span { color: var(--sky); }
 .section-body {
   font-size: 1rem; color: var(--ink-soft);
-  line-height: 1.85; max-width: 55ch; margin-bottom: 1.25rem;
+  line-height: 1.75; max-width: 55ch; margin-bottom: 1.25rem;
 }
 .section-body.light { color: rgba(250,252,255,0.65); }
 .divider-line { width: 60px; height: 3px; background: var(--blue); margin: 2rem 0; }
@@ -398,7 +398,7 @@ nav {
   color: var(--ink-soft);
   padding-left: 1rem;
   position: relative;
-  line-height: 1.45;
+  line-height: 1.55;
 }
 .about-list li::before {
   content: '';
@@ -1122,6 +1122,19 @@ body.page-exit {
   body { animation: none; }
   body.page-exit { transition: none; opacity: 1; transform: none; }
 }
+/* ─────────────────────────────────────────────
+   NAV ACTIVE STATE
+───────────────────────────────────────────── */
+.nav-links a[aria-current="page"] {
+  color: var(--navy);
+}
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+.mobile-menu-nav a[aria-current="page"] {
+  color: var(--blue);
+}
+
 </style>
 </head>
 <body>
@@ -1210,19 +1223,19 @@ body.page-exit {
         <div class="form-row">
           <div class="form-field">
             <label for="fname">Given Name<span class="required-star" aria-hidden="true">*</span></label>
-            <input type="text" id="fname" name="given_name" autocomplete="given-name" placeholder="Given Name" required aria-required="true">
-            <span class="field-error" id="fname-error">Please enter your given name.</span>
+            <input type="text" id="fname" name="given_name" aria-describedby="fname-error" autocomplete="given-name" placeholder="Given Name" required aria-required="true">
+            <span class="field-error" role="alert" aria-live="assertive" id="fname-error">Please enter your given name.</span>
           </div>
           <div class="form-field">
             <label for="lname">Surname<span class="required-star" aria-hidden="true">*</span></label>
-            <input type="text" id="lname" name="surname" autocomplete="family-name" placeholder="Surname" required aria-required="true">
-            <span class="field-error" id="lname-error">Please enter your surname.</span>
+            <input type="text" id="lname" name="surname" aria-describedby="lname-error" autocomplete="family-name" placeholder="Surname" required aria-required="true">
+            <span class="field-error" role="alert" aria-live="assertive" id="lname-error">Please enter your surname.</span>
           </div>
         </div>
         <div class="form-field">
           <label for="email">Email Address<span class="required-star" aria-hidden="true">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-required="true">
-          <span class="field-error" id="email-error">Please enter a valid email address.</span>
+          <input type="email" id="email" name="email" aria-describedby="email-error" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-required="true">
+          <span class="field-error" role="alert" aria-live="assertive" id="email-error">Please enter a valid email address.</span>
         </div>
         <div class="form-field">
           <label for="phone">Phone Number</label>
@@ -1230,14 +1243,14 @@ body.page-exit {
         </div>
         <div class="form-field">
           <label for="interest">I'm Interested In<span class="required-star" aria-hidden="true">*</span></label>
-          <select id="interest" name="interest" required aria-required="true">
+          <select id="interest" name="interest" aria-describedby="interest-error" autocomplete="off" required aria-required="true">
             <option value="" disabled selected>Select an option</option>
             <option>Individual Ticket — K1,000</option>
             <option>Table Reservation — K10,000</option>
             <option>Corporate Sponsorship</option>
             <option>Making a Donation</option>
           </select>
-          <span class="field-error" id="interest-error">Please select an option.</span>
+          <span class="field-error" role="alert" aria-live="assertive" id="interest-error">Please select an option.</span>
         </div>
         <div class="form-field">
           <label for="message">Message (optional)</label>
