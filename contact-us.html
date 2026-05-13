@@ -646,31 +646,31 @@ nav {
 }
 .contact-detail-group {
   margin-top: 2rem;
-  display: flex; flex-direction: column; gap: 1rem;
+  display: flex; flex-direction: column;
+  border-top: 1px solid rgba(122,209,255,0.12);
 }
 .contact-detail {
-  display: flex; align-items: flex-start; gap: 1.25rem;
-  padding: 1.5rem;
-  background: rgba(122,209,255,0.05);
-  border: 1px solid rgba(122,209,255,0.15);
-  border-radius: 2px;
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(122,209,255,0.12);
 }
 .contact-detail-icon {
-  width: 40px; height: 40px; flex-shrink: 0;
-  background: rgba(6,114,186,0.2); border-radius: 50%;
+  width: 20px; height: 20px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
+  opacity: 0.45;
 }
 .contact-detail-icon svg {
-  width: 18px; height: 18px;
-  stroke: var(--sky); fill: none; stroke-width: 2;
+  width: 16px; height: 16px;
+  stroke: var(--sky); fill: none; stroke-width: 1.75;
 }
 .contact-detail-label {
-  font-size: 0.63rem; font-weight: 600; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--sky); margin-bottom: 0.25rem;
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--sky); opacity: 0.7;
+  margin-bottom: 0.15rem;
 }
 .contact-detail-value {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.05rem; font-weight: 500; color: var(--white);
+  font-size: 0.95rem; font-weight: 400; color: rgba(255,255,255,0.88);
 }
 .contact-form {
   display: flex; flex-direction: column; gap: 1rem;
