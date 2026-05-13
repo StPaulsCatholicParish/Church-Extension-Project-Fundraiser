@@ -1136,56 +1136,6 @@ body.page-exit {
 }
 
 
-/* ─────────────────────────────────────────────
-   ABOUT TEASER (home page)
-───────────────────────────────────────────── */
-.about-teaser {
-  background: var(--white);
-  padding: 6rem 2.5rem;
-}
-.about-teaser-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 3fr 2fr;
-  gap: 5rem; align-items: center;
-}
-.btn-blue {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 52px; padding: 0 2.25rem;
-  background: var(--blue); color: var(--white);
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.88rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  text-decoration: none; cursor: pointer;
-  transition: background 160ms var(--ease-ui), transform 100ms var(--ease-ui);
-}
-.btn-blue:hover { background: var(--blue-dark); }
-.btn-blue:active { transform: scale(0.97); }
-.about-teaser-stats {
-  display: flex; flex-direction: column; gap: 2rem;
-  padding: 2.5rem; background: var(--silver-pale);
-  border-top: 3px solid var(--blue);
-}
-.teaser-stat { display: flex; flex-direction: column; gap: 0.25rem; }
-.teaser-stat-num {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2.75rem; font-weight: 700;
-  color: var(--blue); line-height: 1;
-}
-.teaser-stat-label {
-  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--ink-soft);
-}
-@media (max-width: 1024px) {
-  .about-teaser-inner { grid-template-columns: 1fr; gap: 3rem; }
-}
-@media (max-width: 768px) {
-  .about-teaser { padding: 4rem 1.25rem; }
-  .about-teaser-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; padding: 1.5rem; }
-  .teaser-stat-num { font-size: 2rem; }
-}
-@media (max-width: 375px) {
-  .about-teaser { padding: 3rem 1rem; }
-}
-
 </style>
 </head>
 <body>
@@ -1276,31 +1226,7 @@ body.page-exit {
   </div>
 </div>
 
-<!-- About teaser -->
-<section class="about-teaser" aria-labelledby="teaser-about-title">
-  <div class="about-teaser-inner">
-    <div class="about-teaser-text reveal">
-      <p class="section-eyebrow">Who we are</p>
-      <h2 class="section-title" id="teaser-about-title">30+ Years of Faith <span>&amp; Service</span></h2>
-      <p class="section-body">Saint Paul's Catholic Parish – Gerehu Stage 6 has stood as a beacon of hope, faith, and positive change for generations of families. From education and healthcare to youth programs and community outreach, our mission reaches far beyond the church walls.</p>
-      <a href="about.html" class="btn-blue reveal" data-delay="1" style="margin-top:1.5rem; display:inline-flex;">Learn About Our Parish</a>
-    </div>
-    <div class="about-teaser-stats reveal" data-delay="1" aria-hidden="true">
-      <div class="teaser-stat">
-        <span class="teaser-stat-num">30+</span>
-        <span class="teaser-stat-label">Years Serving Gerehu</span>
-      </div>
-      <div class="teaser-stat">
-        <span class="teaser-stat-num">6</span>
-        <span class="teaser-stat-label">Community Services</span>
-      </div>
-      <div class="teaser-stat">
-        <span class="teaser-stat-num">1</span>
-        <span class="teaser-stat-label">Community, One Mission</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- Quote banner -->
 <div class="quote-banner" role="complementary" aria-label="Parish message">
