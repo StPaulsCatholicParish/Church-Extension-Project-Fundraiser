@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get Involved — Saint's Paul's Catholic Parish</title>
-<meta name="description" content="Support Saint Paul's Parish church extension. Buy tickets, donate, or contact the fundraising committee.">
+<title>About Our Parish — Saint Paul's Catholic Parish</title>
+<meta name="description" content="Learn about Saint Paul's Catholic Parish — Gerehu Stage 6, Port Moresby. Over 30 years of faith, community service, education, and healthcare in Papua New Guinea.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
@@ -1122,43 +1122,6 @@ body.page-exit {
   body { animation: none; }
   body.page-exit { transition: none; opacity: 1; transform: none; }
 }
-
-/* ─────────────────────────────────────────────
-   CONTACT CTA BAND
-───────────────────────────────────────────── */
-.contact-cta-band {
-  background: var(--navy);
-  padding: 6rem 2.5rem;
-  position: relative; overflow: hidden;
-}
-.contact-cta-band::before {
-  content: '';
-  position: absolute; top: -40px; right: -40px;
-  width: 300px; height: 300px; border-radius: 50%;
-  border: 60px solid rgba(122,209,255,0.06);
-  pointer-events: none;
-}
-.contact-cta-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 3rem; flex-wrap: wrap;
-  position: relative; z-index: 1;
-}
-.contact-cta-text { max-width: 560px; }
-.cta-band-btn {
-  flex-shrink: 0;
-  min-width: 200px; justify-content: center;
-  font-size: 1rem;
-}
-@media (max-width: 768px) {
-  .contact-cta-band { padding: 4rem 1.25rem; }
-  .contact-cta-inner { flex-direction: column; align-items: flex-start; }
-  .cta-band-btn { width: 100%; }
-}
-@media (max-width: 375px) {
-  .contact-cta-band { padding: 3rem 1rem; }
-}
-
 /* ─────────────────────────────────────────────
    NAV ACTIVE STATE
 ───────────────────────────────────────────── */
@@ -1191,10 +1154,10 @@ body.page-exit {
   </a>
   <ul class="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
-     <li><a href="about.html">About</a></li>
+     <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="event.html">The Dinner</a></li>
     <li><a href="project.html">The Building</a></li>
-    <li><a href="contact.html" aria-current="page">Support</a></li>
+    <li><a href="contact.html">Support</a></li>
     <li><a href="contact-us.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Support</a>
@@ -1208,10 +1171,10 @@ body.page-exit {
   <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close navigation menu">&#10005;</button>
   <ul class="mobile-menu-nav">
     <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-    <li><a href="about.html" class="mobile-nav-link">About</a></li>
+    <li><a href="about.html" class="mobile-nav-link" aria-current="page">About</a></li>
     <li><a href="event.html" class="mobile-nav-link">The Dinner</a></li>
     <li><a href="project.html" class="mobile-nav-link">The Building</a></li>
-    <li><a href="contact.html" class="mobile-nav-link" aria-current="page">Support</a></li>
+    <li><a href="contact.html" class="mobile-nav-link">Support</a></li>
     <li><a href="contact-us.html" class="mobile-nav-link">Contact</a></li>
   </ul>
   <a href="contact.html" class="mobile-menu-cta mobile-nav-link">Support</a>
@@ -1222,57 +1185,89 @@ body.page-exit {
   <div class="page-hero-img" style="background-position: center 60%;"></div>
   <div class="page-hero-content">
     
-    <h1 class="page-hero-title">Support <span>Our Mission</span></h1>
-    <p class="page-hero-sub">Every contribution &mdash; whether a ticket, a donation, or a kind word shared &mdash; helps build a stronger future for our community.</p>
+    <h1 class="page-hero-title">About <span>Our Parish</span></h1>
+    <p class="page-hero-sub">Over 30 years of faith, service, and community — standing as a beacon of hope in Gerehu Stage 6, Port Moresby.</p>
   </div>
-</header><!-- Ways to Give -->
-<section class="give" id="give" aria-labelledby="give-title">
-  <div class="give-inner">
+</header>
+
+
+<!-- Contact -->
+<section class="intro about-page" id="about" aria-labelledby="about-title">
+  <div class="intro-grid">
+    <div class="intro-left reveal">
+      <div class="intro-img-wrap">
+        <div class="intro-img" role="img" aria-label="Parish community gathering"></div>
+        <div class="intro-img-accent" aria-hidden="true">
+          <span class="intro-img-accent-num">30+</span>
+          <span class="intro-img-accent-text">Years Serving Gerehu</span>
+        </div>
+      </div>
+      <div class="intro-map">
+        <div class="intro-map-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Gerehu Stage 6, Port Moresby
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492.0626450153489!2d147.159094517905!3d-9.37733429439823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69023a4d99dc40a3%3A0x732a14c7c10eb225!2sSt.%20Paul&#39;s%20Catholic%20Church!5e1!3m2!1sen!2spg!4v1778619758867!5m2!1sen!2spg"
+          title="St. Paul's Catholic Church location on Google Maps"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
     <div>
-      <h2 class="section-title reveal" id="give-title">Every Contribution <span>Builds</span> Something Lasting</h2>
+      <h2 class="section-title reveal" id="about-title">About <span>Our Parish</span></h2>
       <div class="divider-line reveal"></div>
-      <p class="section-body reveal">Whether you attend, sponsor, or simply share — your support matters. Here are all the ways you can be part of this mission.</p>
-    </div>
-    <div class="give-ways reveal" data-delay="1" role="list" aria-label="Ways to support">
-      <div class="give-way" role="listitem">
-        <span class="give-way-num" aria-hidden="true">01</span>
-        <div><h3>Purchase a Ticket</h3><p>Join us on the 26th for K1,000. A night of community, fine dining, and faith-filled celebration.</p></div>
+      <p class="section-body reveal">
+        For many years, Saint Paul's Catholic Parish – Gerehu Stage 6, has stood as a beacon of hope, faith, and positive change within our community. The parish has welcomed and supported generations of families, from children, teenagers, young adults, parents, and elders, providing a place of worship, guidance, fellowship, healing, and belonging for many. Through community service, faith formation, education, healthcare, youth engagement, and outreach programs, our parish continues to nurture lives and strengthen families within Gerehu and the wider community.
+      </p>
+      <p class="section-body reveal" data-delay="1">
+        Guided by the values of compassion, unity, and service, Saint Paul's Catholic Parish remains committed to creating a safe and supportive environment where people of all ages can grow spiritually, socially, and personally. Our mission extends beyond the church walls — reaching into schools, healthcare services, youth programs, rehabilitation initiatives, and community development projects that uplift and empower our people.
+      </p>
+      <div class="about-lists reveal" data-delay="2">
+        <div class="about-list-block">
+          <h3 class="about-list-title">Our Community Services Include</h3>
+          <ul class="about-list">
+            <li>St. Paul's Primary School</li>
+            <li>St. Ann Primary School</li>
+            <li>Callan Services for Persons with Disabilities</li>
+            <li>St. Paul's Clinic</li>
+            <li>A community sports field</li>
+            <li>A community renewal centre and hall</li>
+          </ul>
+        </div>
+        <div class="about-list-block">
+          <h3 class="about-list-title">Our Parish Is Actively Involved In</h3>
+          <ul class="about-list">
+            <li>Primary education</li>
+            <li>Early childhood learning and development</li>
+            <li>Healthcare services for women, babies, and the general community</li>
+            <li>Youth empowerment, renewal, and rehabilitation programs</li>
+            <li>Disability support services</li>
+            <li>Youth engagement through sports and community activities</li>
+          </ul>
+        </div>
       </div>
-      <div class="give-way" role="listitem">
-        <span class="give-way-num" aria-hidden="true">02</span>
-        <div><h3>Reserve a Table</h3><p>Bring family, friends, or colleagues for K10,000. A shared table, a shared vision for Gerehu's future.</p></div>
-      </div>
-      <div class="give-way" role="listitem">
-        <span class="give-way-num" aria-hidden="true">03</span>
-        <div><h3>Become a Corporate Sponsor</h3><p>Customised packages for businesses. Brand visibility, recognition, and lasting community goodwill.</p></div>
-      </div>
-      <div class="give-way" role="listitem">
-        <span class="give-way-num" aria-hidden="true">04</span>
-        <div><h3>Make a Donation or Pledge</h3><p>Can't attend? Any donation goes directly to the church building extension project.</p></div>
-      </div>
-      <div class="give-way" role="listitem" style="border-bottom:none;">
-        <span class="give-way-num" aria-hidden="true">05</span>
-        <div><h3>Share the Message</h3><p>Simply spreading the word helps us reach more people who care about our community's future.</p></div>
-      </div>
+      <p class="section-body reveal" data-delay="3" style="margin-top:1.25rem;">
+        At Saint Paul's Catholic Parish, we believe in building a stronger community through faith, service, and compassion — empowering future generations while continuing to serve those most in need.
+      </p>
+      <a href="event.html" class="btn-sky reveal" data-delay="4" style="margin-top:1.25rem; display:inline-flex;">Learn About the Dinner</a>
     </div>
   </div>
 </section>
 
-
-<!-- Contact CTA -->
-<section class="contact-cta-band" aria-labelledby="contact-cta-title">
-  <div class="contact-cta-inner">
-    <div class="contact-cta-text">
-      <p class="section-eyebrow light">Ready to connect?</p>
-      <h2 class="section-title light" id="contact-cta-title">Get in <span>Touch</span></h2>
-      <p class="section-body light">Reserve tickets, arrange a table, enquire about sponsorship, or simply say hello. Our fundraising committee is ready to hear from you.</p>
-    </div>
-    <a href="contact-us.html" class="btn-sky cta-band-btn">Contact Us</a>
+<!-- Quote banner -->
+<div class="quote-banner" role="complementary" aria-label="Parish message">
+  <div class="quote-banner-inner">
+    <svg class="quote-cross" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <rect x="11" y="2" width="6" height="24" rx="1" fill="white"/>
+      <rect x="4" y="9" width="20" height="6" rx="1" fill="white"/>
+    </svg>
+    <p class="quote-text reveal">"Building a Church, <span>Building a Future</span> for Our People."</p>
+    <p class="quote-attr reveal" data-delay="1">— Saint Paul's Parish Fundraising Committee</p>
   </div>
-</section>
-
-</main>
-
+</div>
 
 </main>
 <!-- Footer -->

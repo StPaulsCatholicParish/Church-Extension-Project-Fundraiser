@@ -1135,6 +1135,57 @@ body.page-exit {
   color: var(--blue);
 }
 
+
+/* ─────────────────────────────────────────────
+   ABOUT TEASER (home page)
+───────────────────────────────────────────── */
+.about-teaser {
+  background: var(--white);
+  padding: 6rem 2.5rem;
+}
+.about-teaser-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 3fr 2fr;
+  gap: 5rem; align-items: center;
+}
+.btn-blue {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0 2.25rem;
+  background: var(--blue); color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.88rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: background 160ms var(--ease-ui), transform 100ms var(--ease-ui);
+}
+.btn-blue:hover { background: var(--blue-dark); }
+.btn-blue:active { transform: scale(0.97); }
+.about-teaser-stats {
+  display: flex; flex-direction: column; gap: 2rem;
+  padding: 2.5rem; background: var(--silver-pale);
+  border-top: 3px solid var(--blue);
+}
+.teaser-stat { display: flex; flex-direction: column; gap: 0.25rem; }
+.teaser-stat-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.75rem; font-weight: 700;
+  color: var(--blue); line-height: 1;
+}
+.teaser-stat-label {
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+@media (max-width: 1024px) {
+  .about-teaser-inner { grid-template-columns: 1fr; gap: 3rem; }
+}
+@media (max-width: 768px) {
+  .about-teaser { padding: 4rem 1.25rem; }
+  .about-teaser-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; padding: 1.5rem; }
+  .teaser-stat-num { font-size: 2rem; }
+}
+@media (max-width: 375px) {
+  .about-teaser { padding: 3rem 1rem; }
+}
+
 </style>
 </head>
 <body>
@@ -1154,7 +1205,7 @@ body.page-exit {
   </a>
   <ul class="nav-links" role="list">
     <li><a href="index.html" aria-current="page">Home</a></li>
-     <li><a href="index.html#about">About</a></li>
+     <li><a href="about.html">About</a></li>
         <li><a href="event.html">The Dinner</a></li>
     <li><a href="project.html">The Building</a></li>
     <li><a href="contact.html">Support</a></li>
@@ -1171,7 +1222,7 @@ body.page-exit {
   <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close navigation menu">&#10005;</button>
   <ul class="mobile-menu-nav">
     <li><a href="index.html" class="mobile-nav-link" aria-current="page">Home</a></li>
-    <li><a href="index.html#about" class="mobile-nav-link">About</a></li>
+    <li><a href="about.html" class="mobile-nav-link">About</a></li>
     <li><a href="event.html" class="mobile-nav-link">The Dinner</a></li>
     <li><a href="project.html" class="mobile-nav-link">The Building</a></li>
     <li><a href="contact.html" class="mobile-nav-link">Support</a></li>
@@ -1225,68 +1276,28 @@ body.page-exit {
   </div>
 </div>
 
-<!-- Intro / About -->
-<section class="intro" id="about" aria-labelledby="about-title">
-  <div class="intro-grid">
-    <div class="intro-left reveal">
-      <div class="intro-img-wrap">
-        <div class="intro-img" role="img" aria-label="Parish community gathering"></div>
-        <div class="intro-img-accent" aria-hidden="true">
-          <span class="intro-img-accent-num">30+</span>
-          <span class="intro-img-accent-text">Years Serving Gerehu</span>
-        </div>
-      </div>
-      <div class="intro-map">
-        <div class="intro-map-label">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Gerehu Stage 6, Port Moresby
-        </div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492.0626450153489!2d147.159094517905!3d-9.37733429439823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69023a4d99dc40a3%3A0x732a14c7c10eb225!2sSt.%20Paul&#39;s%20Catholic%20Church!5e1!3m2!1sen!2spg!4v1778619758867!5m2!1sen!2spg"
-          title="St. Paul's Catholic Church location on Google Maps"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+<!-- About teaser -->
+<section class="about-teaser" aria-labelledby="teaser-about-title">
+  <div class="about-teaser-inner">
+    <div class="about-teaser-text reveal">
+      <p class="section-eyebrow">Who we are</p>
+      <h2 class="section-title" id="teaser-about-title">30+ Years of Faith <span>&amp; Service</span></h2>
+      <p class="section-body">Saint Paul's Catholic Parish – Gerehu Stage 6 has stood as a beacon of hope, faith, and positive change for generations of families. From education and healthcare to youth programs and community outreach, our mission reaches far beyond the church walls.</p>
+      <a href="about.html" class="btn-blue reveal" data-delay="1" style="margin-top:1.5rem; display:inline-flex;">Learn About Our Parish</a>
     </div>
-    <div>
-      <h2 class="section-title reveal" id="about-title">About <span>Our Parish</span></h2>
-      <div class="divider-line reveal"></div>
-      <p class="section-body reveal">
-        For many years, Saint Paul's Catholic Parish – Gerehu Stage 6, has stood as a beacon of hope, faith, and positive change within our community. The parish has welcomed and supported generations of families, from children, teenagers, young adults, parents, and elders, providing a place of worship, guidance, fellowship, healing, and belonging for many. Through community service, faith formation, education, healthcare, youth engagement, and outreach programs, our parish continues to nurture lives and strengthen families within Gerehu and the wider community.
-      </p>
-      <p class="section-body reveal" data-delay="1">
-        Guided by the values of compassion, unity, and service, Saint Paul's Catholic Parish remains committed to creating a safe and supportive environment where people of all ages can grow spiritually, socially, and personally. Our mission extends beyond the church walls — reaching into schools, healthcare services, youth programs, rehabilitation initiatives, and community development projects that uplift and empower our people.
-      </p>
-      <div class="about-lists reveal" data-delay="2">
-        <div class="about-list-block">
-          <h3 class="about-list-title">Our Community Services Include</h3>
-          <ul class="about-list">
-            <li>St. Paul's Primary School</li>
-            <li>St. Ann Primary School</li>
-            <li>Callan Services for Persons with Disabilities</li>
-            <li>St. Paul's Clinic</li>
-            <li>A community sports field</li>
-            <li>A community renewal centre and hall</li>
-          </ul>
-        </div>
-        <div class="about-list-block">
-          <h3 class="about-list-title">Our Parish Is Actively Involved In</h3>
-          <ul class="about-list">
-            <li>Primary education</li>
-            <li>Early childhood learning and development</li>
-            <li>Healthcare services for women, babies, and the general community</li>
-            <li>Youth empowerment, renewal, and rehabilitation programs</li>
-            <li>Disability support services</li>
-            <li>Youth engagement through sports and community activities</li>
-          </ul>
-        </div>
+    <div class="about-teaser-stats reveal" data-delay="1" aria-hidden="true">
+      <div class="teaser-stat">
+        <span class="teaser-stat-num">30+</span>
+        <span class="teaser-stat-label">Years Serving Gerehu</span>
       </div>
-      <p class="section-body reveal" data-delay="3" style="margin-top:1.25rem;">
-        At Saint Paul's Catholic Parish, we believe in building a stronger community through faith, service, and compassion — empowering future generations while continuing to serve those most in need.
-      </p>
-      <a href="event.html" class="btn-sky reveal" data-delay="4" style="margin-top: 1.25rem; display: inline-flex;">Learn About the Dinner</a>
+      <div class="teaser-stat">
+        <span class="teaser-stat-num">6</span>
+        <span class="teaser-stat-label">Community Services</span>
+      </div>
+      <div class="teaser-stat">
+        <span class="teaser-stat-num">1</span>
+        <span class="teaser-stat-label">Community, One Mission</span>
+      </div>
     </div>
   </div>
 </section>
