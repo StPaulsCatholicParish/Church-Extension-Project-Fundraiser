@@ -1122,6 +1122,43 @@ body.page-exit {
   body { animation: none; }
   body.page-exit { transition: none; opacity: 1; transform: none; }
 }
+
+/* ─────────────────────────────────────────────
+   CONTACT CTA BAND
+───────────────────────────────────────────── */
+.contact-cta-band {
+  background: var(--navy);
+  padding: 6rem 2.5rem;
+  position: relative; overflow: hidden;
+}
+.contact-cta-band::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 300px; height: 300px; border-radius: 50%;
+  border: 60px solid rgba(122,209,255,0.06);
+  pointer-events: none;
+}
+.contact-cta-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 3rem; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.contact-cta-text { max-width: 560px; }
+.cta-band-btn {
+  flex-shrink: 0;
+  min-width: 200px; justify-content: center;
+  font-size: 1rem;
+}
+@media (max-width: 768px) {
+  .contact-cta-band { padding: 4rem 1.25rem; }
+  .contact-cta-inner { flex-direction: column; align-items: flex-start; }
+  .cta-band-btn { width: 100%; }
+}
+@media (max-width: 375px) {
+  .contact-cta-band { padding: 3rem 1rem; }
+}
+
 </style>
 </head>
 <body>
@@ -1144,7 +1181,7 @@ body.page-exit {
         <li><a href="event.html">The Dinner</a></li>
     <li><a href="project.html">The Building</a></li>
     <li><a href="contact.html">Support</a></li>
-    <li><a href="contact.html#contact">Contact</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Support</a>
   <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" id="hamburger-btn">
@@ -1160,13 +1197,10 @@ body.page-exit {
     <li><a href="event.html" class="mobile-nav-link">The Dinner</a></li>
     <li><a href="project.html" class="mobile-nav-link">The Building</a></li>
     <li><a href="contact.html" class="mobile-nav-link">Support</a></li>
-    <li><a href="contact.html#contact" class="mobile-nav-link">Contact</a></li>
+    <li><a href="contact-us.html" class="mobile-nav-link">Contact</a></li>
   </ul>
   <a href="contact.html" class="mobile-menu-cta mobile-nav-link">Support</a>
 </div>
-
-<main id="main">
-
 
 <main id="main">
 <header class="page-hero" role="banner">
@@ -1210,76 +1244,15 @@ body.page-exit {
 </section>
 
 
-<!-- Contact -->
-<section class="contact" id="contact" aria-labelledby="contact-title">
-  <div class="contact-inner">
-    <div>
-      <h2 class="section-title light reveal" id="contact-title">Ready to Be Part of <span>This?</span></h2>
-      <div class="divider-line light reveal"></div>
-      <p class="section-body light reveal">Contact the Parish Fundraising Committee to reserve tickets, arrange a table, enquire about sponsorship, or make a donation.</p>
-      <div class="contact-detail-group">
-        <div class="contact-detail reveal" data-delay="1">
-          <div class="contact-detail-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <p class="contact-detail-label">Phone</p>
-            <p class="contact-detail-value">+675 82452098 — Jerry Nicholas (Chairman)</p>
-            <p class="contact-detail-value" style="font-size:0.85rem; opacity:0.75; margin-top:0.35rem;">+675 76982519 — Lucy M &nbsp;·&nbsp; +675 71806122 — Gabriel</p>
-          </div>
-        </div>
-        <div class="contact-detail reveal" data-delay="2">
-          <div class="contact-detail-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round"/><polyline points="22,6 12,13 2,6" stroke-linecap="round"/></svg>
-          </div>
-          <div>
-            <p class="contact-detail-label">Email</p>
-            <p class="contact-detail-value">saintpaulscatholicparish@gmail.com</p>
-          </div>
-        </div>
-      </div>
+<!-- Contact CTA -->
+<section class="contact-cta-band" aria-labelledby="contact-cta-title">
+  <div class="contact-cta-inner">
+    <div class="contact-cta-text">
+      <p class="section-eyebrow light">Ready to connect?</p>
+      <h2 class="section-title light" id="contact-cta-title">Get in <span>Touch</span></h2>
+      <p class="section-body light">Reserve tickets, arrange a table, enquire about sponsorship, or simply say hello. Our fundraising committee is ready to hear from you.</p>
     </div>
-    <div class="reveal" data-delay="1">
-      <form class="contact-form" action="https://formspree.io/f/mbdwwzwg" method="POST" aria-label="Ticket enquiry form">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="fname">Given Name<span class="required-star" aria-hidden="true">*</span></label>
-            <input type="text" id="fname" name="given_name" autocomplete="given-name" placeholder="Given Name" required aria-required="true">
-            <span class="field-error" id="fname-error">Please enter your given name.</span>
-          </div>
-          <div class="form-field">
-            <label for="lname">Surname<span class="required-star" aria-hidden="true">*</span></label>
-            <input type="text" id="lname" name="surname" autocomplete="family-name" placeholder="Surname" required aria-required="true">
-            <span class="field-error" id="lname-error">Please enter your surname.</span>
-          </div>
-        </div>
-        <div class="form-field">
-          <label for="email">Email Address<span class="required-star" aria-hidden="true">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-required="true">
-          <span class="field-error" id="email-error">Please enter a valid email address.</span>
-        </div>
-        <div class="form-field">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+675 82452098">
-        </div>
-        <div class="form-field">
-          <label for="interest">I'm Interested In<span class="required-star" aria-hidden="true">*</span></label>
-          <select id="interest" name="interest" required aria-required="true">
-            <option value="" disabled selected>Select an option</option>
-            <option>Individual Ticket — K1,000</option>
-            <option>Table Reservation — K10,000</option>
-            <option>Corporate Sponsorship</option>
-            <option>Making a Donation</option>
-          </select>
-          <span class="field-error" id="interest-error">Please select an option.</span>
-        </div>
-        <div class="form-field">
-          <label for="message">Message (optional)</label>
-          <textarea id="message" name="message" placeholder="Any questions or special requirements..."></textarea>
-        </div>
-        <button type="submit" class="btn-blue-full">Send Enquiry</button>
-      </form>
-    </div>
+    <a href="contact-us.html" class="btn-sky cta-band-btn">Contact Us</a>
   </div>
 </section>
 
