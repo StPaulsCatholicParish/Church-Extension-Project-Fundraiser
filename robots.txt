@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stpaulscatholicparish.github.io/Church-Extension-Project-Fundraiser/sitemap.xml
+Sitemap: https://saintpaulscatholicparishgerehu.org/sitemap.xml
