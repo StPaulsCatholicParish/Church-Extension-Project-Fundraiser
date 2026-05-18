@@ -154,7 +154,7 @@ nav {
   letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400;
 }
 .nav-links {
-  display: flex; gap: 0.25rem; list-style: none; align-items: center;
+  display: flex; gap: 0.5rem; list-style: none; align-items: center;
 }
 .nav-links a {
   font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
@@ -929,20 +929,24 @@ footer {
 .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 .mobile-menu {
-  display: none;
+  display: flex;
   position: fixed; inset: 0; z-index: 200;
   background: var(--white);
   flex-direction: column;
   padding: 5rem 2rem 2rem;
   overflow-y: auto;
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transform: translateY(-6px);
-  transition: opacity 220ms var(--ease-ui), transform 220ms var(--ease-ui);
+  transition: opacity 220ms var(--ease-ui), transform 220ms var(--ease-ui), visibility 0ms 220ms;
 }
 .mobile-menu.open {
-  display: flex;
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transform: none;
+  transition-delay: 0ms;
 }
 .mobile-menu-nav {
   list-style: none; display: flex; flex-direction: column; gap: 0;
@@ -951,7 +955,7 @@ footer {
 .mobile-menu-nav li { border-bottom: 1px solid var(--silver); }
 .mobile-menu-nav a {
   display: flex; align-items: center;
-  padding: 1rem 0;
+  padding: 1rem 1.25rem;
   font-family: 'Oswald', sans-serif;
   font-size: 1.2rem; font-weight: 600; letter-spacing: 0.06em;
   text-transform: uppercase; color: var(--navy);
@@ -1239,17 +1243,22 @@ body.page-exit {
 /* ── Dropdown nav ─────────────────────────────────────────────────── */
 .nav-dropdown { position: relative; }
 .nav-dropdown-menu {
-  display: none;
   position: absolute; top: calc(100% + 8px); left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-4px);
   background: var(--white); border: 1px solid var(--silver);
   border-radius: 4px; min-width: 220px;
   box-shadow: 0 8px 24px rgba(0,15,56,0.1);
   padding: 0.4rem 0; list-style: none;
   z-index: 200;
+  visibility: hidden; opacity: 0; pointer-events: none;
+  transition: opacity 160ms var(--ease-ui), transform 160ms var(--ease-ui), visibility 0ms 160ms;
 }
 .nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  visibility: visible; opacity: 1; pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0ms;
+}
 .nav-dropdown-menu li a {
   display: block; padding: 0.55rem 1.2rem;
   font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
@@ -1258,27 +1267,34 @@ body.page-exit {
   transition: background 160ms, color 160ms;
 }
 .nav-dropdown-menu li a:hover { background: var(--sky-pale); color: var(--blue); }
-.nav-dropdown-toggle::before {
+.nav-links .nav-dropdown-toggle {
+  display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
+}
+.nav-dropdown-toggle::after {
   content: '';
-  display: inline-block; width: 6px; height: 6px;
+  display: block; width: 5px; height: 5px;
   border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
-  transform: rotate(45deg) translateY(-2px);
-  margin-left: 5px; vertical-align: middle;
-  order: 2;
+  transform: rotate(45deg) translateY(-1px);
+  flex-shrink: 0;
+  transition: transform 180ms var(--ease-ui);
+}
+.nav-dropdown:hover .nav-dropdown-toggle::after,
+.nav-dropdown:focus-within .nav-dropdown-toggle::after {
+  transform: rotate(-135deg) translateY(1px);
 }
 
 /* ── Mobile nav group ─────────────────────────────────────────────── */
 .mobile-nav-group { margin-top: 0.25rem; }
 .mobile-nav-group-label {
-  display: block; padding: 0.85rem 1.5rem;
+  display: block; padding: 0.85rem 1.25rem;
   font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--sky);
   border-bottom: 1px solid rgba(122,209,255,0.15);
 }
 .mobile-nav-sub { list-style: none; padding: 0; }
-.mobile-nav-sub-link {
-  padding-left: 2.25rem !important;
-  font-size: 0.82rem !important;
+.mobile-nav-sub .mobile-nav-sub-link {
+  padding-left: 2.75rem;
+  font-size: 0.82rem;
   opacity: 0.85;
 }
 </style>
