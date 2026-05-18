@@ -163,7 +163,7 @@ nav {
   transition: color 160ms var(--ease-ui);
   position: relative;
 }
-.nav-links a::after {
+.nav-links a:not(.nav-dropdown-toggle)::after {
   content: ''; position: absolute; bottom: 0;
   left: 0.6rem; right: 0.6rem; height: 2px;
   background: var(--blue);
@@ -172,7 +172,7 @@ nav {
 }
 .nav-links a:hover { color: var(--navy); }
 @media (hover: hover) and (pointer: fine) {
-  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a:not(.nav-dropdown-toggle):hover::after { transform: scaleX(1); }
 }
 .nav-cta {
   display: inline-flex; align-items: center; justify-content: center;
@@ -1166,7 +1166,7 @@ body.page-exit {
 .nav-links a[aria-current="page"] {
   color: var(--navy);
 }
-.nav-links a[aria-current="page"]::after {
+.nav-links a:not(.nav-dropdown-toggle)[aria-current="page"]::after {
   transform: scaleX(1);
 }
 .mobile-menu-nav a[aria-current="page"] {
@@ -1222,12 +1222,13 @@ body.page-exit {
   transition: background 160ms, color 160ms;
 }
 .nav-dropdown-menu li a:hover { background: var(--sky-pale); color: var(--blue); }
-.nav-dropdown-toggle::after {
+.nav-dropdown-toggle::before {
   content: '';
   display: inline-block; width: 6px; height: 6px;
   border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
   transform: rotate(45deg) translateY(-2px);
   margin-left: 5px; vertical-align: middle;
+  order: 2;
 }
 
 /* ── Mobile nav group ─────────────────────────────────────────────── */
