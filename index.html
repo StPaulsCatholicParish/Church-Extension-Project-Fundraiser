@@ -610,6 +610,84 @@ nav {
 .form-field label .required-star { color: #c0392b; margin-left: 2px; }
 
 /* ─────────────────────────────────────────────
+   PARISH INTRO
+───────────────────────────────────────────── */
+.parish-intro {
+  padding: 5rem 1.5rem;
+  background: var(--white);
+}
+.parish-intro-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.parish-intro-text .section-title { margin-bottom: 1rem; }
+.parish-intro-text .section-body { margin-bottom: 1.5rem; }
+.parish-intro-link {
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--blue); text-decoration: none;
+  transition: color 160ms var(--ease-ui);
+}
+.parish-intro-link:hover { color: var(--blue-dark); }
+.parish-highlights {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+.parish-highlight {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 1.75rem 1rem;
+  background: var(--silver-pale);
+  border: 1px solid var(--rule-light);
+  border-radius: 4px;
+}
+.parish-highlight-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.25rem; font-weight: 700;
+  color: var(--blue); line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.parish-highlight-label {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-soft); line-height: 1.4;
+}
+
+/* Home fundraiser strip */
+.home-fundraiser-strip {
+  background: var(--navy); padding: 4rem 1.5rem;
+}
+.home-fundraiser-strip-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 2rem;
+}
+.home-fundraiser-strip .section-title { margin-bottom: 0.75rem; }
+.home-fundraiser-strip .section-body { max-width: 560px; }
+
+@media (max-width: 900px) {
+  .parish-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .home-fundraiser-strip-inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .parish-highlights {
+    grid-template-columns: 1fr 1fr;
+  }
+  .parish-highlight:last-child {
+    grid-column: 1 / -1;
+  }
+  .home-fundraiser-strip-inner {
+    align-items: center;
+  }
+}
+
+/* ─────────────────────────────────────────────
    QUOTE BANNER
 ───────────────────────────────────────────── */
 .quote-banner {
@@ -1300,13 +1378,11 @@ body.page-exit {
 
 <main id="main">
 
-
-<main id="main">
 <!-- Hero -->
 <header class="hero" aria-labelledby="hero-title">
   <div class="hero-img" role="img" aria-label="Saint Paul's Catholic Parish — Gerehu Stage 6"></div>
   <div class="hero-content">
-    <h1 id="hero-title">Welcome to<br>St. Paul's<br><span>Catholic Parish</span></h1>
+    <h1 id="hero-title">St. Paul's<br><span>Catholic Parish</span></h1>
     <p class="hero-sub">Serving Gerehu for over 30 Years</p>
     <div class="hero-actions">
       <a href="about.html" class="btn-sky">About Our Parish</a>
@@ -1319,21 +1395,55 @@ body.page-exit {
 <div class="ticker" aria-hidden="true">
   <div class="ticker-inner">
     <span class="ticker-item">Growing Together in Grace <span class="ticker-dot"></span></span>
-    <span class="ticker-item">Embrace the Journey <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Rooted in Faith <span class="ticker-dot"></span></span>
     <span class="ticker-item">Faith is Our Foundation <span class="ticker-dot"></span></span>
     <span class="ticker-item">Walking in Faith and Love <span class="ticker-dot"></span></span>
-    <span class="ticker-item">Building Our Future Together <span class="ticker-dot"></span></span>
-    <span class="ticker-item">Fundraising Dinner — 26 June 2026 <span class="ticker-dot"></span></span>
+    <span class="ticker-item">A Church for Every Family <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Gerehu Stage 6 · Port Moresby <span class="ticker-dot"></span></span>
     <span class="ticker-item">Growing Together in Grace <span class="ticker-dot"></span></span>
-    <span class="ticker-item">Embrace the Journey <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Rooted in Faith <span class="ticker-dot"></span></span>
     <span class="ticker-item">Faith is Our Foundation <span class="ticker-dot"></span></span>
     <span class="ticker-item">Walking in Faith and Love <span class="ticker-dot"></span></span>
-    <span class="ticker-item">Building Our Future Together <span class="ticker-dot"></span></span>
-    <span class="ticker-item">Fundraising Dinner — 26 June 2026 <span class="ticker-dot"></span></span>
+    <span class="ticker-item">A Church for Every Family <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Gerehu Stage 6 · Port Moresby <span class="ticker-dot"></span></span>
   </div>
 </div>
 
+<!-- Parish intro section -->
+<section class="parish-intro" aria-labelledby="intro-title">
+  <div class="parish-intro-inner">
+    <div class="parish-intro-text">
+      <h2 class="section-title" id="intro-title">A Community <span>Built on Faith</span></h2>
+      <p class="section-body">Saint Paul's Catholic Parish has been at the heart of Gerehu Stage 6 for over 30 years — providing spiritual guidance, education, healthcare, and community support to the families of Port Moresby.</p>
+      <a href="about.html" class="parish-intro-link">Learn more about our parish →</a>
+    </div>
+    <div class="parish-highlights">
+      <div class="parish-highlight">
+        <span class="parish-highlight-num">30+</span>
+        <span class="parish-highlight-label">Years of Service</span>
+      </div>
+      <div class="parish-highlight">
+        <span class="parish-highlight-num">4+</span>
+        <span class="parish-highlight-label">Community Institutions</span>
+      </div>
+      <div class="parish-highlight">
+        <span class="parish-highlight-num">1</span>
+        <span class="parish-highlight-label">Parish, Many Families</span>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Fundraiser CTA strip -->
+<section class="home-fundraiser-strip" aria-labelledby="fundraiser-strip-title">
+  <div class="home-fundraiser-strip-inner">
+    <div>
+      <h2 class="section-title light" id="fundraiser-strip-title">Church Extension <span>Fundraising</span></h2>
+      <p class="section-body light">We are raising funds to extend our church building and better serve our growing congregation. Join us at our fundraising dinner on 26 June 2026.</p>
+    </div>
+    <a href="event.html" class="btn-sky">View the Fundraiser</a>
+  </div>
+</section>
 
 <!-- Quote banner -->
 <div class="quote-banner" role="complementary" aria-label="Parish message">
@@ -1343,10 +1453,9 @@ body.page-exit {
       <rect x="4" y="9" width="20" height="6" rx="1" fill="white"/>
     </svg>
     <p class="quote-text reveal">"Building a Church, <span>Building a Future</span> for Our People."</p>
-    <p class="quote-attr reveal" data-delay="1">— Saint Paul's Parish Fundraising Committee</p>
+    <p class="quote-attr reveal" data-delay="1">— Saint Paul's Catholic Parish</p>
   </div>
 </div>
-
 
 </main>
 <!-- Footer -->
